@@ -24,5 +24,4 @@ defmodule Blackjack.DeckTest do
 		assert length(remaining_deck) == 47
 	end
 
-
 end
