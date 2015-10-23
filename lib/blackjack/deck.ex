@@ -1,5 +1,4 @@
 defmodule Blackjack.Deck do
-
 	def deck do
     for suite <- [:spades, :hearts, :clubs, :diamonds],
 		rank <-  [:ace, :two, :three, :four, :five, :six, :seven, :eight, :nine,

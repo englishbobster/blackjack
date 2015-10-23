@@ -7,9 +7,16 @@ defmodule Blackjack.DeckTest do
 	end
 
 	test "that a card can be dealt from the deck" do
-		{[card], remaining_deck} = Deck.deal_cards(Deck.deck, 1)
-		assert is_tuple(card) == true
+		{hand, remaining_deck} = Deck.deal_cards(Deck.deck, 1)
+		assert length(hand) == 1
 		assert length(remaining_deck) == 51
 	end
+
+	test "that 2 or more cards can be dealt from the deck" do
+		{hand, remaining_deck} = Deck.deal_cards(Deck.deck, 5)
+		assert length(hand) == 5
+		assert length(remaining_deck) == 47
+	end
+
 
 end
