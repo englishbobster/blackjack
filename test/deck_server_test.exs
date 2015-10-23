@@ -4,7 +4,7 @@ defmodule DeckTest do
 	use ExUnit.Case
 
 	setup do
-		{:ok, pid} = DeckServer.start
+		DeckServer.start
 		on_exit fn ->
 			DeckServer.stop
 		end
@@ -19,5 +19,5 @@ defmodule DeckTest do
 		assert length(DeckServer.deal_hand_of(5)) == 5
 		assert DeckServer.count_remaining_cards == 47
 	end
-	
+
 end

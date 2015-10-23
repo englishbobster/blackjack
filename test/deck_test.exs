@@ -13,8 +13,8 @@ defmodule Blackjack.DeckTest do
 	end
 
 	test "that a dealt card is represented by a tuple" do
-		{hand, remaining_deck} = Deck.deal_cards(Deck.deck, 1)
-		[card|rest] = hand
+		{hand, _remaining_deck} = Deck.deal_cards(Deck.deck, 1)
+		[card|_remaining_cards] = hand
 		assert is_tuple(card) == true
 	end
 
