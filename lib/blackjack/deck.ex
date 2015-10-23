@@ -16,8 +16,7 @@ defmodule Blackjack.Deck do
 	defp deal_card(hand, remaining_deck, 0) do
 		{hand, remaining_deck}
 	end
-	defp deal_card(hand, deck, count) do
-		[head|remaining_deck] = deck
-		deal_card([head|hand], remaining_deck, count - 1)
+	defp deal_card(hand, [top_card|remaining_deck], count) do
+		deal_card([top_card|hand], remaining_deck, count - 1)
 	end
 end
