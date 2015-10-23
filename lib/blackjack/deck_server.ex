@@ -22,7 +22,7 @@ defmodule Blackjack.DeckServer do
 
 	#callbacks
 	def init(_) do
-		{:ok, deck |> shuffle_deck}
+		{:ok, deck() |> shuffle_deck}
 	end
 
 	def handle_call(:stop, _from, deck) do
