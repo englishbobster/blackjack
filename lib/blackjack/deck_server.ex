@@ -7,19 +7,26 @@ defmodule Blackjack.DeckServer do
 	end
 
 	def stop do
-		GenServer.call(:Deck, :stop)
+		GenServer.call(Deck, :stop)
+	end
+
+	def count_remaining_cards do
+		GenServer.call(Deck, :cards_remaining)
 	end
 
 	#callbacks
 	def init(_) do
-		{:ok, deck}
+		{:ok, shuffle_deck(deck)}
 	end
 
 	def handle_call(:stop, _from, deck) do
 		{:stop, :normal, :ok, deck}
 	end
+	def handle_call(:cards_remaining, _, deck) do
+		{:reply, length(deck), deck}
+	end
 
-
+	#deck specific functions
 	defp deck do
     for suite <- [:spades, :hearts, :clubs, :diamonds],
 		rank <-  [:ace, :two, :three, :four, :five, :six, :seven, :eight, :nine,
